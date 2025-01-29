@@ -1,133 +1,18 @@
--- Roblox Script
 
--- Create the main GUI
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 400, 0, 300)
-frame.Position = UDim2.new(0.5, -200, 0.5, -150)
-frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-frame.Parent = screenGui
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
 
--- Make the frame have smooth edges
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 15)
-corner.Parent = frame
+]]--
 
--- Title Label
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, 0, 0, 40)
-title.Text = "Enter the Key"
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextSize = 24
-title.BackgroundTransparency = 1
-title.Parent = frame
+local v0=Instance.new("ScreenGui");v0.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui");local v2=Instance.new("Frame");v2.Size=UDim2.new(0,400,0,300);v2.Position=UDim2.new(0.5, -200,0.5, -150);v2.BackgroundColor3=Color3.fromRGB(50,50,50);v2.Parent=v0;local v7=Instance.new("UICorner");v7.CornerRadius=UDim.new(0,15);v7.Parent=v2;local v10=Instance.new("TextLabel");v10.Size=UDim2.new(1,0,0,40);v10.Text="Enter the Key";v10.TextColor3=Color3.fromRGB(255,255,255);v10.TextSize=24;v10.BackgroundTransparency=1;v10.Parent=v2;local v17=Instance.new("TextBox");v17.Size=UDim2.new(0,300,0,40);v17.Position=UDim2.new(0.5, -150,0.5, -20);v17.BackgroundColor3=Color3.fromRGB(30,30,30);v17.TextColor3=Color3.fromRGB(255,255,255);v17.PlaceholderText="Enter Key";v17.TextSize=18;v17.ClearTextOnFocus=false;v17.Parent=v2;local v26=Instance.new("TextButton");v26.Size=UDim2.new(0,100,0,40);v26.Position=UDim2.new(0.5, -50,0.5,40);v26.Text="Submit";v26.BackgroundColor3=Color3.fromRGB(0,122,255);v26.TextColor3=Color3.fromRGB(255,255,255);v26.TextSize=20;v26.Parent=v2;local v34="R@nd0mKey2025!";v26.MouseButton1Click:Connect(function() if (v17.Text==v34) then local v49="https://raw.githubusercontent.com/artyom77767/script/refs/heads/main/script";local v50=Instance.new("TextBox");v50.Size=UDim2.new(0,300,0,40);v50.Position=UDim2.new(0.5, -150,0.5,80);v50.BackgroundColor3=Color3.fromRGB(30,30,30);v50.TextColor3=Color3.fromRGB(255,255,255);v50.Text=v49;v50.TextSize=18;v50.ClearTextOnFocus=false;v50.TextEditable=false;v50.Parent=v0;local v60=Instance.new("TextLabel");v60.Size=UDim2.new(0,300,0,40);v60.Position=UDim2.new(0.5, -150,0.5,120);v60.Text="Click to copy text";v60.TextColor3=Color3.fromRGB(255,255,255);v60.TextSize=18;v60.BackgroundTransparency=1;v60.Parent=v0;v50.MouseButton1Click:Connect(function() print("Copied text to clipboard: "   .. v50.Text );end);v2.Visible=false;else v17.Text="";v17.PlaceholderText="Incorrect Key! Try again.";end end);local v35=Instance.new("TextButton");v35.Size=UDim2.new(0,30,0,30);v35.Position=UDim2.new(1, -40,0, -10);v35.Text="X";v35.BackgroundColor3=Color3.fromRGB(255,0,0);v35.TextColor3=Color3.fromRGB(255,255,255);v35.TextSize=18;v35.Parent=v2;v35.MouseButton1Click:Connect(function() v0:Destroy();end);local v43=false;local v44=nil;local v45=nil;v2.InputBegan:Connect(function(v46) if (v46.UserInputType==Enum.UserInputType.MouseButton1) then v43=true;v44=v46.Position;v45=v2.Position;end end);v2.InputChanged:Connect(function(v47) if (v43 and (v47.UserInputType==Enum.UserInputType.MouseMovement)) then local v73=v47.Position-v44 ;v2.Position=UDim2.new(v45.X.Scale,v45.X.Offset + v73.X ,v45.Y.Scale,v45.Y.Offset + v73.Y );end end);v2.InputEnded:Connect(function(v48) if (v48.UserInputType==Enum.UserInputType.MouseButton1) then v43=false;end end);
 
--- Key input box
-local keyBox = Instance.new("TextBox")
-keyBox.Size = UDim2.new(0, 300, 0, 40)
-keyBox.Position = UDim2.new(0.5, -150, 0.5, -20)
-keyBox.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-keyBox.PlaceholderText = "Enter Key"
-keyBox.TextSize = 18
-keyBox.ClearTextOnFocus = false
-keyBox.Parent = frame
-
--- Submit button
-local submitButton = Instance.new("TextButton")
-submitButton.Size = UDim2.new(0, 100, 0, 40)
-submitButton.Position = UDim2.new(0.5, -50, 0.5, 40)
-submitButton.Text = "Submit"
-submitButton.BackgroundColor3 = Color3.fromRGB(0, 122, 255)
-submitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-submitButton.TextSize = 20
-submitButton.Parent = frame
-
--- Hard-to-guess key (change this to any secure key)
-local secretKey = "R@nd0mKey2025!"
-
--- Function to handle key validation and display a non-editable textbox with the content to copy
-submitButton.MouseButton1Click:Connect(function()
-    if keyBox.Text == secretKey then
-        -- Create a new textbox with the content to copy
-        local copyText = "https://raw.githubusercontent.com/artyom77767/script/refs/heads/main/script"
-        
-        -- Create a non-editable textbox
-        local copyTextbox = Instance.new("TextBox")
-        copyTextbox.Size = UDim2.new(0, 300, 0, 40)
-        copyTextbox.Position = UDim2.new(0.5, -150, 0.5, 80)
-        copyTextbox.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        copyTextbox.TextColor3 = Color3.fromRGB(255, 255, 255)
-        copyTextbox.Text = copyText
-        copyTextbox.TextSize = 18
-        copyTextbox.ClearTextOnFocus = false
-        copyTextbox.TextEditable = false  -- Make the textbox non-editable
-        copyTextbox.Parent = screenGui
-        
-        -- Create a copy instruction label
-        local instructionLabel = Instance.new("TextLabel")
-        instructionLabel.Size = UDim2.new(0, 300, 0, 40)
-        instructionLabel.Position = UDim2.new(0.5, -150, 0.5, 120)
-        instructionLabel.Text = "Click to copy text"
-        instructionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        instructionLabel.TextSize = 18
-        instructionLabel.BackgroundTransparency = 1
-        instructionLabel.Parent = screenGui
-        
-        -- Connect copying functionality (using Roblox's own copy method)
-        copyTextbox.MouseButton1Click:Connect(function()
-            -- Simulate copying text (since Roblox can't directly copy to clipboard, show message)
-            print("Copied text to clipboard: " .. copyTextbox.Text)
-        end)
-
-        -- Hide the original key input GUI
-        frame.Visible = false
-    else
-        -- Incorrect key input
-        keyBox.Text = ""
-        keyBox.PlaceholderText = "Incorrect Key! Try again."
-    end
-end)
-
--- X button to close and remove the GUI
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -40, 0, -10)
-closeButton.Text = "X"
-closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-closeButton.TextSize = 18
-closeButton.Parent = frame
-
--- Close button functionality
-closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()  -- Destroys the entire GUI
-end)
-
--- Draggable GUI functionality
-local dragging = false
-local dragStart = nil
-local startPos = nil
-
-frame.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        dragStart = input.Position
-        startPos = frame.Position
-    end
-end)
-
-frame.InputChanged:Connect(function(input)
-    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-        local delta = input.Position - dragStart
-        frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-    end
-end)
-
-frame.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = false
-    end
-end)
+Community
+All Actions
+Obfuscation
+Dystropic Malevolence Chaotic Evil Chaotic Good OBFUSCATE v1 OBFUSCATE (old) Basic Go
